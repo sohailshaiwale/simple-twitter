@@ -3,12 +3,17 @@ from kafka import KafkaProducer
 from json import dumps
 from time import sleep
 from datetime import datetime
+import os
+from dotenv import load_dotenv 
 
-# #twitter_keys
-access_token = "1491703690658336770-zmSabY3qRyNVHBNA6FlF4McZBLvo9q"
-access_token_secret = "Gm6GyUf9KpI9ngUBVdf7XB2KySup4EAZSx82qRpbkmSt0"
-consumer_key = "uYtNOr9tYvi2nFAJ3wMGiyk4m"
-consumer_secret = "bfc9CZooksbwnbIYvj6XN1LwOgaxuyyp7whAWqkarLs3rfrUqX"
+load_dotenv()
+
+#twitter_keys
+access_token = os.getenv("access_token") 
+access_token_secret = os.getenv("access_token_secret") 
+consumer_key = os.getenv("consumer_key") 
+consumer_secret = os.getenv("consumer_secret") 
+ 
 
 #twitter_authentication
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
